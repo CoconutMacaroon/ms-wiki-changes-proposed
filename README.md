@@ -44,7 +44,7 @@ The easiest way to install Ruby is with [RVM](https://rvm.io). To install Ruby 2
     $ gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
     $ curl -sSL https://get.rvm.io | bash -s stable
     $ source ~/.rvm/scripts/rvm
-    $ rvm instal ruby
+    $ rvm instal ruby-2.7.4
 
 You can also use a less popular alternative, [rbenv](https://github.com/rbenv/rbenv#basic-github-checkout) with [ruby-build](https://github.com/rbenv/ruby-build#installation):
 
