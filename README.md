@@ -32,8 +32,10 @@ If you can make metasmoke work on Windows, you're a better developer than most o
 
 ## Install NodeJS (no macOS instructions yet)
 
-        curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - 
-        sudo apt-get install nodejs 
+```
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - 
+sudo apt-get install nodejs 
+```
 
 ## Install Ruby
 
