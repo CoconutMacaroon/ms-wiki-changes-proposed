@@ -74,7 +74,7 @@ To clone using SSH:
 # Install metasmoke dependencies
 
     $ cd metasmoke
-    $ gem install bundler
+    $ gem install bundler:1.17.3
     $ bundle install
     $ yarn install
 
