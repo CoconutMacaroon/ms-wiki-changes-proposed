@@ -26,6 +26,8 @@ If you can make metasmoke work on Windows, you're a better developer than most o
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
     sudo apt update
+    wget https://repo.mysql.com//mysql-apt-config_0.8.24-1_all.deb
+    sudo apt update
     sudo apt install git mysql-client mysql-server libmysqlclient-dev libsqlite3-dev yarn
 
 ## Install NodeJS (no macOS instructions yet)
@@ -37,10 +39,10 @@ If you can make metasmoke work on Windows, you're a better developer than most o
 
 The easiest way to install Ruby is with [RVM](https://rvm.io). To install Ruby 2.5 (other ruby versions may work, but metasmoke runs on 2.5.0 as of 3/9/2018):
 
-    $ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+    $ gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
     $ curl -sSL https://get.rvm.io | bash -s stable
     $ source ~/.rvm/scripts/rvm
-    $ rvm install 2.5.0
+    $ rvm instal ruby
 
 You can also use a less popular alternative, [rbenv](https://github.com/rbenv/rbenv#basic-github-checkout) with [ruby-build](https://github.com/rbenv/ruby-build#installation):
 
