@@ -110,7 +110,7 @@ The module depends on the c pcre library, which can be installed on macOS with:
 
 or on ubuntu with
 
-    $ apt-get install libpcre3-dev
+    $ sudo apt-get install libpcre3-dev
 
 On other platforms, you'll need to figure out some way to get it installed. 
 
