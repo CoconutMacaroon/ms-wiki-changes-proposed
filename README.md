@@ -114,6 +114,8 @@ or on ubuntu with
 
 On other platforms, you'll need to figure out some way to get it installed. 
 
+If you're using `gcc` instead of `clang`, replace `CC=clang` with `CC=gcc` in the `Makefile`
+
 Then, build the module:
 
     $ make
