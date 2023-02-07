@@ -156,7 +156,8 @@ Now exit the MySQL command line using ^D or `exit`.
     $ cd config
     $ cp config.sample.yml config.yml
     $ cp database.sample.yml database.yml
-
+    $ cp cable.sample.yml cable.yml
+    
 Now edit `database.yml`, and change it to the following:
 
     default: &default
