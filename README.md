@@ -94,8 +94,9 @@ Since most package managers have old versions, you'll need to maually build redi
     $ cd redis-git
     $ make
 
-And, if you feel extra careful
+And, if you feel extra careful, you can run the tests
 
+    $ sudo apt-get install tcl
     $ make test
 
 Then, you'll need to build our redis module. You'll want to be in the `metasmoke` directory, so if you're continuing from the last step, `cd ..`:
