@@ -120,7 +120,7 @@ Then, build the module:
 
     $ make
 
-Now you've built everything you'll need for redis. We'll come back to run it in a later step.
+Now that you've built everything you'll need for redis, go baack to the `metasmoke` directory: `cd ..`. We'll come back to run it in a later step.
 
 ## Getting a data dump
 
