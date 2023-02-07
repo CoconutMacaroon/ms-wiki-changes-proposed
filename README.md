@@ -94,7 +94,7 @@ Since most package managers have old versions, you'll need to maually build redi
     $ cd redis-git
     $ make
 
-And, if you feel extra careful, you can run the tests
+And, if you feel extra careful, you can run the tests. Some tests may fail if you try to use multiple jobs, so don't do that.
 
     $ sudo apt-get install tcl
     $ make test
