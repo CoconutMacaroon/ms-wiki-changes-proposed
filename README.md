@@ -26,21 +26,25 @@ If you can make metasmoke work on Windows, you're a better developer than most o
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
     sudo apt update
+    wget https://repo.mysql.com//mysql-apt-config_0.8.24-1_all.deb
+    sudo apt update
     sudo apt install git mysql-client mysql-server libmysqlclient-dev libsqlite3-dev yarn
 
 ## Install NodeJS (no macOS instructions yet)
 
-        curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - 
-        sudo apt-get install nodejs 
+```
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - 
+sudo apt-get install nodejs 
+```
 
 ## Install Ruby
 
 The easiest way to install Ruby is with [RVM](https://rvm.io). To install Ruby 2.5 (other ruby versions may work, but metasmoke runs on 2.5.0 as of 3/9/2018):
 
-    $ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+    $ gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
     $ curl -sSL https://get.rvm.io | bash -s stable
     $ source ~/.rvm/scripts/rvm
-    $ rvm install 2.5.0
+    $ rvm instal ruby-2.7.4
 
 You can also use a less popular alternative, [rbenv](https://github.com/rbenv/rbenv#basic-github-checkout) with [ruby-build](https://github.com/rbenv/ruby-build#installation):
 
@@ -70,7 +74,7 @@ To clone using SSH:
 # Install metasmoke dependencies
 
     $ cd metasmoke
-    $ gem install bundler
+    $ gem install bundler:1.17.3
     $ bundle install
     $ yarn install
 
@@ -90,8 +94,9 @@ Since most package managers have old versions, you'll need to maually build redi
     $ cd redis-git
     $ make
 
-And, if you feel extra careful
+And, if you feel extra careful, you can run the tests. Some tests may fail if you try to use multiple jobs, so don't do that.
 
+    $ sudo apt-get install tcl
     $ make test
 
 Then, you'll need to build our redis module. You'll want to be in the `metasmoke` directory, so if you're continuing from the last step, `cd ..`:
@@ -105,15 +110,17 @@ The module depends on the c pcre library, which can be installed on macOS with:
 
 or on ubuntu with
 
-    $ apt-get install libpcre3-dev
+    $ sudo apt-get install libpcre3-dev
 
 On other platforms, you'll need to figure out some way to get it installed. 
+
+If you're using `gcc` instead of `clang`, replace `CC=clang` with `CC=gcc` in the `Makefile`
 
 Then, build the module:
 
     $ make
 
-Now you've built everything you'll need for redis. We'll come back to run it in a later step.
+Now that you've built everything you'll need for redis, go baack to the `metasmoke` directory: `cd ..`. We'll come back to run it in a later step.
 
 ## Getting a data dump
 
@@ -149,7 +156,8 @@ Now exit the MySQL command line using ^D or `exit`.
     $ cd config
     $ cp config.sample.yml config.yml
     $ cp database.sample.yml database.yml
-
+    $ cp cable.sample.yml cable.yml
+    
 Now edit `database.yml`, and change it to the following:
 
     default: &default
